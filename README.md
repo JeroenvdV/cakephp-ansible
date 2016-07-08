@@ -1,5 +1,7 @@
 # Ansible Cakephp, PHP7, MySQL Setup
 
+[![Build Status](https://travis-ci.org/voycey/cakephp-ansible.svg?branch=master)](https://travis-ci.org/voycey/cakephp-ansible)
+
 This Ansible playbook is designed to be a one command setup of an entire LEMP server with webroot directories created for CakePHP ( but easily overridable for any PHP system)
 
 ## Defaults
