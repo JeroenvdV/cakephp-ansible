@@ -20,7 +20,7 @@
 
 - name: Copy .env file and Source
   become: true
-  template: src=configs/.env dest=/root/.env group={{ php_group }} owner=root  mode=660
+  template: src=configs/cakephp_env dest=/root/.env group={{ php_group }} owner=root  mode=660
 
   # Create web directories
 - name: Create web directories
