@@ -1,6 +1,8 @@
 # Ansible LEMP setup with CakePHP 3 (PHP 7)
 
 [![Build Status](https://travis-ci.org/voycey/cakephp-ansible.svg?branch=master)](https://travis-ci.org/voycey/cakephp-ansible)
+[![Github All Releases](https://img.shields.io/github/downloads/voycey/cakephp-ansible/total.svg?maxAge=2592000)]()
+
 
 This Ansible playbook is designed to be a one command setup of an entire LEMP server with webroot directories created for CakePHP ( but easily overridable for any PHP system)
 
