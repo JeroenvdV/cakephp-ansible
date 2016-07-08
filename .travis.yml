@@ -13,7 +13,6 @@ before_install:
 
 script:
   - echo "==> Run Test case ..."
-
   - grep '00:00:00 php-fpm7.0' tests/output.ubuntu16.04.log
 
 notifications:
