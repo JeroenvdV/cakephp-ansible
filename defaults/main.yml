@@ -28,12 +28,12 @@ apt_php_packages:
   - php7.0-redis
   - php7.0-mbstring
   - php7.0-zip
+  - mysql-server-5.6
+  - mysql-client-5.6
   
 apt_other_packages:
   - python
   - python-mysqldb
-  - mariadb-server
-  - mysql-client
   - unixodbc
   - libpq5
   - nginx-full

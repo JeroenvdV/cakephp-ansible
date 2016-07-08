@@ -15,7 +15,7 @@ This Ansible playbook is designed to be a one command setup of an entire LEMP se
   * Redis
 
 * Nginx (Ubuntu package)
-* MySql (Server & Client - standard ports)
+* MySql (Server & Client - standard ports (5.6 cos Travis sucks))
 * Redis (Port 6379)
 * Sphinxsearch (Port 9307)
 * Git
