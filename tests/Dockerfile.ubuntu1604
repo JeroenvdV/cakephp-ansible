@@ -1,4 +1,4 @@
-FROM williamyeh/ansible:ubuntu16.04
+FROM williamyeh/ansible:ubuntu16.04-onbuild
 
 RUN sed -i -e 's/exit\s\s*101/exit 0/' /usr/sbin/policy-rc.d
 RUN apt-get update
