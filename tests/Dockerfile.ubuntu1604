@@ -1,10 +1,10 @@
-FROM ubuntu:xenial
+FROM williamyeh/ansible:ubuntu16.04
 
 RUN sed -i -e 's/exit\s\s*101/exit 0/' /usr/sbin/policy-rc.d
 RUN apt-get update
 RUN apt-get install -y ansible
 
 ENV PLAYBOOK setup.yml
-RUN ansible-playbook -vvv
+RUN ansible-playbook-wrapper -vvv 
 
 VOLUME [ "/data" ]
