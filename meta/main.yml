@@ -1,0 +1,19 @@
+---
+
+galaxy_info:
+  author: voycey
+  description: Deploy LEMP (PHP 7) on Ubuntu 16.04
+  license: MIT
+  min_ansible_version: 1.9
+  platforms:
+    - name: Ubuntu
+      versions:
+      - xenial
+  galaxy_tags:
+    - php
+    - php7
+    - web
+    - nginx
+
+dependencies: []
+

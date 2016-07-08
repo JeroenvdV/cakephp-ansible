@@ -1,0 +1,14 @@
+#!/usr/bin/env ansible-playbook
+## vim:ft=ansible :
+
+---
+
+- name: Delegate to APT system for installation
+  include: use-apt.yml
+  when: ansible_pkg_mgr == "apt"
+
+- include: configure.yml
+
+- name: Delegate to App Setup
+  become: false
+  include: setup-app.yml

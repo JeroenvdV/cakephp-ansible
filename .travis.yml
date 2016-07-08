@@ -1,0 +1,21 @@
+language: bash
+sudo: true
+services:
+  - docker
+
+before_install:
+  - docker info
+  - docker version
+
+  - echo "==> Build with Docker ..."
+
+  - docker build -f tests/Dockerfile.ubuntu1604 -t php7:ubuntu1604 . | tee tests/output.ubuntu16.04.log
+
+script:
+  - echo "==> Run Test case ..."
+
+  - grep '00:00:00 php-fpm7.0' tests/output.ubuntu16.04.log
+
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/
+

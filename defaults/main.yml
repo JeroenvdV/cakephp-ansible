@@ -1,0 +1,50 @@
+#!/usr/bin/env ansible-playbook
+## vim:ft=ansible :
+
+---
+
+# All.
+php_timezone: "Australia/Melbourne"
+php_upload_max_filesize: "20M"
+php_post_max_size: "20M"
+php_memory_limit: "1024M"
+
+# Debian & Ubuntu.
+debian_php7_apt_repo: "http://packages.dotdeb.org"
+debian_php7_apt_key: "https://www.dotdeb.org/dotdeb.gpg"
+ubuntu_php7_ppa_repo: "ppa:ondrej/php"
+
+apt_php_packages:
+  - php7.0
+  - php7.0-cgi
+  - php7.0-cli
+  - php7.0-common
+  - php7.0-curl
+  - php7.0-fpm
+  - php7.0-gd
+  - php7.0-intl
+  - php7.0-json
+  - php7.0-mysql
+  - php7.0-redis
+  - php7.0-mbstring
+  - php7.0-zip
+  
+apt_other_packages:
+  - python
+  - python-mysqldb
+  - mysql-server
+  - mysql-client
+  - unixodbc
+  - libpq5
+  - nginx-full
+  - redis-server
+  - sphinxsearch
+  - git
+  - unzip
+
+
+  #- php7.0-pear
+
+# need use 'www-data' on Ubuntu
+php_owner: www-data
+php_group: www-data

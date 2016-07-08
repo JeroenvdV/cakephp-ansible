@@ -1,0 +1,14 @@
+FROM ubuntu:xenial
+
+RUN sed -i -e 's/exit\s\s*101/exit 0/' /usr/sbin/policy-rc.d
+
+# init.
+RUN sudo apt-get install -y curl git make ;\
+      git clone https://github.com/voycey/php7.ansible.role.git cakephp-ansible;\
+      cd php7.ansible.role ;\
+      make init
+
+ENV PLAYBOOK cakephp-ansible/setup.yml
+RUN ansible-playbook-wrapper -vvv
+
+VOLUME [ "/data" ]

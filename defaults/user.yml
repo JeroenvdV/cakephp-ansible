@@ -1,0 +1,15 @@
+# Make your changes in here
+# HTTP Host Domain
+app_name: "CakePHP App"
+http_domain: cakephp.local
+github_repo: git@github.com:cakephp/cakephp.git
+webroot: app/webroot/ #trailing slash
+root_db_password: root
+db_name: cakephp
+db_port: 3306
+db_host: localhost
+db_user: root
+db_pass: root
+
+#should this install the latest version of CakePHP 3?
+provision-cake: true

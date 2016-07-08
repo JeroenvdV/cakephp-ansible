@@ -1,0 +1,16 @@
+# Install App Skeleton
+- composer:
+    command: "create-project"
+    arguments: "cakephp/app"
+    working_dir: "/var/www/vhosts/{{ http_domain }}"
+    prefer_dist: "yes"
+
+# Composer Install
+- composer:
+    command: "install"
+    working_dir: "/var/www/vhosts/{{ http_domain }}/app"
+
+# Composer Update
+- composer:
+    command: "update"
+    working_dir: "/var/www/vhosts/{{ http_domain }}/app"
