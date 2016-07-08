@@ -17,4 +17,4 @@
 
 # Copy .env file
 - name: Copy .env file after composer update
-  template: src=configs/cakephp_env dest=/var/www/vhosts/{{ http_domain }}/app/config/.env group={{ php_group }}
+  template: src=configs/cakephp_env dest=/var/www/vhosts/{{ http_domain }}/app/config/.env
