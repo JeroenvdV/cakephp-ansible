@@ -3,6 +3,7 @@
 app_name: "CakePHP App"
 http_domain: cakephp.local
 github_repo: git@github.com:cakephp/cakephp.git
+
 webroot: app/webroot/ #trailing slash
 root_db_password: root
 db_name: cakephp
