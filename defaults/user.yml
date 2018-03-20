@@ -1,7 +1,7 @@
 # Make your changes in here
 # HTTP Host Domain
-app_name: "CakePHP App"
-http_domain: cakephp.local
+app_name: "DBTA Backend"
+http_domain: mf-dev.wolpfackit.nl
 github_repo: git@github.com:cakephp/cakephp.git
 
 webroot: app/webroot/ #trailing slash

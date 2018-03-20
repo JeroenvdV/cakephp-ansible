@@ -13,24 +13,19 @@ This Ansible playbook is designed to be a one command setup of an entire LEMP se
   * Intl
   * Json
   * Mbstring
-  * MySql
-  * Redis
+  * PgSQL
 
 
 * Nginx (Ubuntu package)
-* MySQL 5.6 (5.7 is currently broken with Docker / Travis - Port 3306)
-* Redis (Port 6379)
-* Sphinxsearch (Port 9307)
+* PostgreSQL
 * Git
 
-It has pretty sane defaults (for development only!), a standard my.cnf and a single FPM pool (all customisable).
-
-_Please note: MySQL has an empty root password when using sudo_
+It has pretty sane defaults (for development only!), a single FPM pool (all customisable).
 
 ## Installation
 
 1. Edit ```defaults/user.yml``` and enter your own details
-2. If you wish to populate MySQL then place a dump called ```dump.sql``` or ```dump.sql.gz``` into the ```sql``` directory
+2. If you wish to populate SQL then place a dump called ```dump.sql``` or ```dump.sql.gz``` into the ```sql``` directory
 2. If you are using Vagrant then you can simply issue a ```sudo vagrant up``` in the root directory and it should download everything and set up your system
 3. If you are just using this on a server then you can clone this repo somewhere on your server and then run ```sudo ansible-playbook setup.yml```
 4. CakePHP latest version is installed automatically to ```/var/www/vhosts/<domain>/```

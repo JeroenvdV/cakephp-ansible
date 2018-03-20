@@ -1,10 +1,10 @@
 ---
 
 galaxy_info:
-  author: voycey
-  description: Deploy LEMP (PHP 7) on Ubuntu 16.04
+  author: jeroenvdv
+  description: Deploy CakePHP/Postgres (PHP 7.1) on Ubuntu 16.04
   license: MIT
-  min_ansible_version: 1.9
+  min_ansible_version: 2.2
   platforms:
     - name: Ubuntu
       versions:

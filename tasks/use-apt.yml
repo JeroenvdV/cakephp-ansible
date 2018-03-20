@@ -15,12 +15,6 @@
   apt_repository: repo={{ ubuntu_php7_ppa_repo }}
   when: ansible_distribution|lower == "ubuntu"
 
-# MySQL 5.6 for Travis problems
-- name: Add old repository for MySQL 5.6 to fix travis errors
-  become: true
-  apt_repository: repo='deb http://archive.ubuntu.com/ubuntu trusty universe' state=present
-  when: ansible_distribution|lower == "ubuntu"
-
 # Update apt cache.
 - name: Update apt cache
   become: true

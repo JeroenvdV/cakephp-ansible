@@ -23,81 +23,48 @@
   when: ansible_distribution|lower == "ubuntu"
 
 # Copy the Configuration files.
-
-- name: Copy Sphinx Config file
-  become: true
-  copy: src=configs/sphinx.conf dest=/etc/sphinxsearch/sphinx.conf
-  notify:
-    - restart sphinxsearch
-    - reindex sphinxsearch
-
 - name: Copy NGINX Config file
   become: true
   template: src=configs/vhost.conf dest=/etc/nginx/sites-enabled/{{ http_domain }}.conf
   notify:
     - restart nginx
 
-
-- name: Start the MySQL service
-  action: service name=mysql state=started
-
-# 'localhost' needs to be the last item for idempotency, see
-# http://ansible.cc/docs/modules.html#mysql-user
-- name: update mysql root password for all root accounts
-  mysql_user: name=root host={{ item }} password={{ root_db_password }}
-  with_items:
-    - "{{ ansible_hostname }}"
-    - 127.0.0.1
-    - ::1
-    - localhost
-
-- name: copy .my.cnf file with root password credentials
-  template: src=configs/my.cnf.j2 dest=/root/.my.cnf owner=root mode=0600
-
-# Removes anonymous user account for localhost
-- name: Remove anonymous user accounts for localhost
-  become: true
-  mysql_user: name='' host=localhost state=absent
-
-# Create the system mysql user
-- name: create database user
-  become: true
-  mysql_user: name={{ db_user }} host={{ db_host }} password={{ db_pass }} priv="*.*:ALL,GRANT"
-
 # Check to see if a file exists in sql/dump.sql
-- name: Check if mysql dump exists
+- name: Check if sql dump exists
   local_action: stat path=sql/dump.sql
   register: sql
 
 # Check to see if a file exists in sql/dump.sql.gz
-- name: Check if gzipped mysql dump exists
+- name: Check if gzipped sql dump exists
   local_action: stat path=sql/dump.sql.gz
   register: sqlgz
 
 # Import the dump if it exists above
-- name: Copy MySQL dump if it exists
+- name: Copy SQL dump if it exists
   become: true
   copy: src=sql/dump.sql dest=/tmp
   when: sql.stat.exists
 
 # Create the database
-- name: Create MySQL database
-  become: true
-  mysql_db: name={{ db_name }} state=present
-
-- name: Import MySQL dump if it exists
-  mysql_db: name={{ db_name }} state=import target=/tmp/dump.sql
-  when: sql.stat.exists
+# TODO fix (not working)
+#- name: Create SQL database
+#  become: true
+#  sql_db: name={{ db_name }} state=present
+#
+#- name: Import SQL dump if it exists
+#  sql_db: name={{ db_name }} state=import target=/tmp/dump.sql
+#  when: sql.stat.exists
 
 # Import the gz dump if it exists above
-- name: Import GZ MySQL dump if it exists
+- name: Import GZ SQL dump if it exists
   become: true
   copy: src=sql/dump.sql.gz dest=/tmp
   when: sqlgz.stat.exists
 
-- name: Import GZ MySQL dump if it exists
-  mysql_db: name={{ db_name }} state=import target=/tmp/dump.sql.gz
-  when: sqlgz.stat.exists
+# TODO fix (not working)
+#- name: Import GZ SQL dump if it exists
+#  sql_db: name={{ db_name }} state=import target=/tmp/dump.sql.gz
+#  when: sqlgz.stat.exists
 
 # Install Composer
 - name: Install Composer

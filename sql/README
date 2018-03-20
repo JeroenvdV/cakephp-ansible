@@ -1,1 +1,1 @@
-If an SQL file named dump.sql is placed in this directory it will be imported into mysql on install.
+If an SQL file named dump.sql is placed in this directory it will be imported into postgresql on install.

@@ -10,3 +10,4 @@ tests/*/output.log
 
 configs/.env
 
+.idea
